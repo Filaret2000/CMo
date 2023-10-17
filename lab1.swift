@@ -22,5 +22,6 @@ func insertionSort(vector: [Int]) -> [Int] {
     return array
 }
 
+
 var arr: [Int] = [10, 23, 45, 243, 234234, -1, 2, 6, 3]
 print(insertionSort(vector: arr))
