@@ -1,3 +1,5 @@
+import Foundation
+
 func insertionSort(vector: [Int]) -> [Int] {
     let length = vector.count
     var array = vector
@@ -23,5 +25,48 @@ func insertionSort(vector: [Int]) -> [Int] {
 }
 
 
-var arr: [Int] = [10, 23, 45, 243, 234234, -1, 2, 6, 3]
-print(insertionSort(vector: arr))
+func selectionSort(vector: [Int]) -> [Int] {
+    let length = vector.count
+    var array = vector
+
+    for i in 0..<length - 1 {
+        var smallestVal = i
+        for j in (i + 1)..<length {
+            if (array[j] < array[smallestVal])
+            {
+                smallestVal = j
+            }
+        }
+        let tempVar = array[smallestVal]
+        array[smallestVal] = array[i]
+        array[i] = tempVar
+    }
+    return array;
+}
+
+func readFile(_ path: String) -> [Int] {
+    var array: [Int] = []
+    errno = 0
+    if freopen(path, "r", stdin) == nil {
+        perror(path)
+        return [1]
+    }
+    while let line = readLine() {
+        let number: Int? = Int(line)
+        array.append(number!)
+    }
+    return array
+}
+
+var path = "/home/vboxuser/CMo/input2000.txt"
+var array = readFile(path)
+print(insertionSort(vector: array))
+
+path = "/home/vboxuser/CMo/input5000.txt"
+array = readFile(path)
+print(insertionSort(vector: array))
+
+path = "/home/vboxuser/CMo/input10000.txt"
+array = readFile(path)
+print(insertionSort(vector: array))
+// print(selectionSort(vector: arr))
