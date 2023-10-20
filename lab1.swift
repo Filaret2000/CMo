@@ -66,7 +66,7 @@ path = "/home/vboxuser/CMo/input5000.txt"
 array = readFile(path)
 print(insertionSort(vector: array))
 
-path = "/home/vboxuser/CMo/input10000.txt"
-array = readFile(path)
-print(insertionSort(vector: array))
+// path = "/home/vboxuser/CMo/input10000.txt"
+// array = readFile(path)
+// print(insertionSort(vector: array))
 // print(selectionSort(vector: arr))
