@@ -1,6 +1,6 @@
 import Foundation
 
-func insertionSort(vector: [Int]) -> [Int] {
+func insertionSort(vector: [Int]) {
     let length = vector.count
     var array = vector
 
@@ -21,11 +21,10 @@ func insertionSort(vector: [Int]) -> [Int] {
             }
         }
     }
-    return array
 }
 
 
-func selectionSort(vector: [Int]) -> [Int] {
+func selectionSort(vector: [Int]) {
     let length = vector.count
     var array = vector
 
@@ -41,7 +40,6 @@ func selectionSort(vector: [Int]) -> [Int] {
         array[smallestVal] = array[i]
         array[i] = tempVar
     }
-    return array;
 }
 
 func readFile(_ path: String) -> [Int] {
@@ -59,14 +57,18 @@ func readFile(_ path: String) -> [Int] {
 }
 
 var path = "/home/vboxuser/CMo/input2000.txt"
-var array = readFile(path)
-print(insertionSort(vector: array))
+var alg = "insertion"
+var array: [Int] = []
 
-path = "/home/vboxuser/CMo/input5000.txt"
+alg = CommandLine.arguments[1]
+path = CommandLine.arguments[2]
 array = readFile(path)
-print(insertionSort(vector: array))
 
-// path = "/home/vboxuser/CMo/input10000.txt"
-// array = readFile(path)
-// print(insertionSort(vector: array))
-// print(selectionSort(vector: arr))
+switch (alg) {
+    case "insertion":
+        insertionSort(vector: array)
+    case "selection":
+        selectionSort(vector: array)
+    default:
+        print("Nothing was performed")
+}
