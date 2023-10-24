@@ -1,4 +1,5 @@
 #! /usr/bin/bash
+#Crainiciuc Filaret-Niculai, Gr 3142A
 #Compiling and binarisation
 swiftc lab1.swift -o main
 chmod +x main
